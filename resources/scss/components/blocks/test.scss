@@ -1,0 +1,22 @@
+@use "@/abstracts" as *;
+
+.test {
+    padding: 60px 0;
+    background-color: var(--bg);
+
+    &__block {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+    }
+
+    &__title {
+        color: var(--text);
+    }
+
+    &__text {
+        color: var(--text);
+    }
+}

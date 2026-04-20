@@ -1,0 +1,11 @@
+@use "@/abstracts" as *;
+
+.light,
+.light-dark {
+    @include themeBlock($theme-light);
+}
+
+.dark,
+.dark-light {
+    @include themeBlock($theme-dark);
+}
