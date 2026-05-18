@@ -52,10 +52,10 @@ class Page extends Model
         $theme = $this->theme ?? PageTheme::default();
 
         if ($theme === PageTheme::Light) {
-            return ['light' => $this->blocks, 'dark' => collect()];
+            return ['light' => $this->blocks];
         }
         if ($theme === PageTheme::Dark) {
-            return ['light' => collect(), 'dark' => $this->blocks];
+            return ['dark' => $this->blocks];
         }
 
         $total = $this->blocks->count();

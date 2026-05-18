@@ -13,6 +13,11 @@ class Test extends Component
         return 'test';
     }
 
+    public static function label(): string
+    {
+        return 'Тестовый блок';
+    }
+
     public static function fields(): array
     {
         return [
@@ -22,8 +27,8 @@ class Test extends Component
                 'label' => 'Заголовок',
             ],
             [
-                'name' => 'media',
-                'type' => 'text',
+                'name' => 'image',
+                'type' => 'image',
                 'label' => 'Изображение'
             ],
             [
@@ -40,6 +45,21 @@ class Test extends Component
                 'name' => 'button_link',
                 'type' => 'text',
                 'label' => 'Ссылка',
+            ],
+            [
+                'name'   => 'items',
+                'type'   => 'repeater',
+                'label'  => 'Повторитель',
+                'fields' => [
+                    ['name' => 'title',  'type' => 'text',     'label' => 'Заголовок'],
+                    ['name' => 'text',   'type' => 'textarea', 'label' => 'Текст'],
+                    ['name' => 'image',  'type' => 'image',    'label' => 'Изображение'],
+                ]
+            ],
+            [
+                'name' => 'text',
+                'type' => 'wysiwyg',
+                'label' => 'Контент',
             ],
         ];
     }

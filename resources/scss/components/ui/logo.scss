@@ -20,7 +20,7 @@
         backdrop-filter: var(--blur);
         background-color: var(--blur-bg);
         border: 1px solid rgba($white, 0.3);
-        border-radius: 20px;
+        border-radius: clampFluid(12, 20);
         transition: .3s ease;
     }
 
@@ -30,9 +30,38 @@
     }
 
     &__accent {
+        position: relative;
         background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
         -webkit-background-clip: text;
+        background-clip: text;
         color: transparent;
+        -webkit-text-fill-color: transparent;
         transition: .3s ease;
+
+        &::after {
+            content: attr(data-text);
+            position: absolute;
+            inset: 0;
+            background-image: var(--shimmer-beam);
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 4s cubic-bezier(0.25, 0, 0.75, 1) infinite;
+            pointer-events: none;
+        }
+    }
+}
+
+@keyframes shimmer {
+
+    0%,
+    30% {
+        background-position: 140% center;
+    }
+
+    100% {
+        background-position: -40% center;
     }
 }

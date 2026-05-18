@@ -1,0 +1,182 @@
+@use "@/abstracts" as *;
+
+.wysiwyg {
+
+    h1 {
+        @include textFluid(h1, 400);
+    }
+
+    h2 {
+        @include textFluid(h2, 400);
+    }
+
+    h3 {
+        @include textFluid(h3, 400);
+    }
+
+    h4 {
+        @include textFluid(h4, 400);
+    }
+
+    h5 {
+        @include textFluid(h5, 400);
+    }
+
+    h6 {
+        @include textFluid(h6, 400);
+    }
+
+    p,
+    li {
+        @include textFluid(p1, 400);
+        color: var(--text-70);
+    }
+
+    a {
+        @include textFluid(p1, 400);
+        color: var(--main);
+        transition: .3s ease;
+        text-decoration: underline;
+
+        &:hover {
+            opacity: .7;
+        }
+    }
+
+    p+h1,
+    p+h2,
+    p+h3,
+    p+h4,
+    p+h5,
+    p+h6,
+
+    ul+h1,
+    ul+h2,
+    ul+h3,
+    ul+h4,
+    ul+h5,
+    ul+h6,
+
+    ol+h1,
+    ol+h2,
+    ol+h3,
+    ol+h4,
+    ol+h5,
+    ol+h6 {
+        margin-top: 30px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        &:not(:last-child) {
+            margin-bottom: clampFluid(14, 24);
+        }
+    }
+
+    li,
+    p {
+        word-break: normal;
+
+        &:not(:last-child) {
+            margin-bottom: 8px;
+        }
+    }
+
+    a {
+        word-break: break-all;
+
+        &:not(:last-child) {
+            margin-bottom: 8px;
+        }
+    }
+
+    ul {
+        list-style: disc;
+        padding-left: 18px;
+
+        &:not(:last-child) {
+            margin-bottom: clampFluid(14, 24);
+        }
+
+        li {
+            &::marker {
+                color: var(--main);
+            }
+        }
+    }
+
+    ol {
+        list-style: decimal;
+        padding-left: 18px;
+
+        &:not(:last-child) {
+            margin-bottom: clampFluid(14, 24);
+        }
+    }
+
+    .table-wrapper {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: max-content;
+        margin: 0 auto;
+
+        th,
+        td {
+            width: 360px;
+            white-space: nowrap;
+        }
+
+        th {
+            @include textFluid(p2, 400);
+            padding: clampFluid(10, 14) clampFluid(14, 20);
+            text-align: left;
+            color: var(--text);
+            border: 1px solid var(--inverse);
+        }
+
+        td {
+            @include textFluid(p2, 400);
+            padding: clampFluid(14, 20);
+            border: 1px solid var(--inverse);
+            color: var(--text-70);
+
+            &:first-child {
+                @include textFluid(h4, 400);
+            }
+        }
+
+        tr:first-child th,
+        tr:first-child td {
+            background-color: transparent;
+            border-top: none;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr th {
+            border-bottom: 1px solid var(--inverse);
+        }
+
+        tr th:first-child,
+        tr td:first-child {
+            border-left: none;
+        }
+
+        tr th:last-child,
+        tr td:last-child {
+            border-right: none;
+        }
+    }
+}

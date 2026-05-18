@@ -8,6 +8,12 @@
                 {{ $content['subtitle'] ?? 'Подзаголовок' }}
             </p>
 
+            @foreach ($content['items'] as $value)
+                @if (!empty($value['image']['url']))
+                    <img src="{{ $value['image']['url'] }}" />
+                @endif
+            @endforeach
+
             <x-ui.button :text="$content['button_text']" />
         </div>
     </div>

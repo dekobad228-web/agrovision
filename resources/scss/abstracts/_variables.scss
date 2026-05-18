@@ -11,6 +11,9 @@ $blue-transparent: #303AFF00;
 $theme-light: (
     bg: $white-gray,
     text: $black,
+
+    inverse: $black,
+
     text-80: rgba($black, 0.8),
     text-70: rgba($black, 0.7),
     text-60: rgba($black, 0.6),
@@ -29,11 +32,25 @@ $theme-light: (
 
     blur: blur(100px),
     blur-bg: rgba($white, 1),
+
+    shimmer-beam: linear-gradient(110deg,
+        transparent 0%,
+        transparent 38%,
+        rgba($black, 0.07) 43%,
+        rgba($white, 0.00) 46%,
+        rgba($white, 0.90) 50%,
+        rgba($white, 0.00) 54%,
+        rgba($black, 0.05) 57%,
+        transparent 62%,
+        transparent 100%),
 );
 
 $theme-dark: (
     bg: $black,
     text: $white,
+
+    inverse: $white,
+
     text-80: rgba($white, 0.8),
     text-70: rgba($white, 0.7),
     text-60: rgba($white, 0.6),
@@ -52,56 +69,67 @@ $theme-dark: (
 
     blur: blur(43.400001525878906px),
     blur-bg: rgba($white, 0.1),
+
+    shimmer-beam: linear-gradient(110deg,
+        transparent 0%,
+        transparent 38%,
+        rgba($black, 0.15) 43%,
+        rgba($green-lime, 0.00) 46%,
+        rgba($green-lime, 0.60) 50%,
+        rgba($orange, 0.40) 54%,
+        rgba($black, 0.10) 57%,
+        transparent 62%,
+        transparent 100%),
 );
 
 $text-style: (
-    h1: (
-        min: 71,
-        max: 118,
+    h1: (min: 60,
+        max: 120,
         line-height: 1.1,
         font-weight: 400,
+        color: text,
     ),
-    h2: (
-        min: 20,
+    h2: (min: 24,
+        max: 45,
+        line-height: 1.1,
+        font-weight: 400,
+        color: text,
+    ),
+    h3: (min: 20,
         max: 32,
+        line-height: 1.15,
+        font-weight: 400,
+        color: text,
+    ),
+    h4: (min: 16,
+        max: 28,
         line-height: 1.2,
         font-weight: 400,
+        color: text,
     ),
-    h3: (
-        min: 16,
-        max: 26,
-        line-height: 1.2,
-        font-weight: 400,
-    ),
-    h4: (
-        min: 16,
-        max: 22,
-        line-height: 1.2,
-        font-weight: 400,
-    ),
-    h5: (
-        min: 16,
+    h5: (min: 16,
         max: 18,
         line-height: 1.2,
         font-weight: 400,
+        color: text,
     ),
-    h6: (
-        min: 16,
+    h6: (min: 16,
         max: 16,
         line-height: 1.2,
         font-weight: 400,
+        color: text,
     ),
-    p1: (
-        min: 16,
+    p1: (min: 16,
         max: 24,
         line-height: 1.2,
         font-weight: 400,
+        color: text,
     ),
-    p2: (
-        min: 14,
+    p2: (min: 14,
         max: 20,
         line-height: 1.2,
         font-weight: 400,
+        color: text-70,
     )
 );
 

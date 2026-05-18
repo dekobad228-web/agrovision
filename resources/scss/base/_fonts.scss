@@ -6,7 +6,7 @@ html {
 
 @each $key, $value in $text-style {
     @each $name, $weight in $font-weight {
-        .text-#{$key}-#{$name} {
+        .#{$key}-#{$name} {
             @include textFluid($key, $weight);
         }
     }

@@ -1,11 +1,19 @@
 @use "@/abstracts" as *;
 
+.icon {
+    svg {
+        path {
+            stroke: var(--main);
+        }
+    }
+}
+
 .icon-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: clampFluid(7.5, 15);
-    border-radius: 20px;
+    border-radius: clampFluid(12, 20);
     pointer-events: all;
 
     &--default {
@@ -39,14 +47,14 @@
         position: relative;
         width: clampFluid(31, 61);
         height: clampFluid(31, 61);
-        border-radius: 20px;
+        border-radius: clampFluid(12, 20);
         overflow: visible;
 
         &::before {
             content: "";
             position: absolute;
             inset: 0;
-            border-radius: 20px;
+            border-radius: clampFluid(12, 20);
             background: linear-gradient(360deg, var(--gradient-1) 0%, var(--gradient-2) 50%, var(--gradient-3) 100%);
             filter: brightness(1);
             opacity: 1;

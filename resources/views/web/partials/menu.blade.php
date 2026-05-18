@@ -12,7 +12,7 @@
         <div class="menu__block">
             @foreach ($menus['home']->items as $slug => $value)
                 <a href="{{ $value->url === 'home' ? url('/') : route('page.index', $value->url) }}"
-                    class="menu__el text-p2-400{{ $value->url === $currentPage->slug ? ' active' : '' }}">
+                    class="p2-400 menu__el{{ $value->url === $currentPage->slug ? ' active' : '' }}">
                     {{ $value->title }}
                 </a>
             @endforeach

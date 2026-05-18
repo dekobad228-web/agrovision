@@ -2,7 +2,7 @@
 'href' => null,
 'type' => 'button',
 'text' => '',
-'size' => 'text-p2-400',
+'size' => 'p2-400',
 'variant' => 'default',
 ])
 

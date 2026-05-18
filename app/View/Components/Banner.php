@@ -13,6 +13,11 @@ class Banner extends Component
         return 'banner';
     }
 
+    public static function label(): string
+    {
+        return 'Баннер';
+    }
+
     public static function fields(): array
     {
         return [

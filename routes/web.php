@@ -13,5 +13,14 @@ Route::get('/contacts', function () {
     return view('web.pages.contacts');
 })->name('contacts');
 
+Route::get('/admin/media', function (\Illuminate\Http\Request $request) {
+    if ($request->boolean('json')) {
+        return response()->json(
+            \App\Models\Media::ordered()->get()
+        );
+    }
+    abort(404);
+})->middleware(['auth']);
+
 require_once __DIR__ . '/admin.php';
 require_once __DIR__ . '/auth.php';

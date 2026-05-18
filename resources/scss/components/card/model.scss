@@ -1,0 +1,42 @@
+@use "@/abstracts" as *;
+
+.card-model {
+    display: flex;
+    flex-flow: column;
+    gap: clampFluid(8, 16);
+
+    &__image {
+        aspect-ratio: 1 / 1;
+        height: clampFluid(407.5);
+        object-fit: cover;
+        border-radius: clampFluid(12, 26);
+    }
+
+    &__box {
+        display: flex;
+        flex-flow: column;
+        gap: 5px;
+    }
+
+    &__text {
+
+        ul {
+            padding-left: 0;
+
+            li {
+                list-style-position: inside;
+                padding-left: 0;
+                margin-bottom: 0 !important;
+
+                &::marker {
+                    color: var(--text-70);
+                }
+            }
+        }
+
+        li,
+        p {
+            @include textFluid(p2, 400);
+        }
+    }
+}

@@ -1,0 +1,72 @@
+@use "@/abstracts" as *;
+
+.section-pricing {
+    &__block {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+        gap: clampFluid(60, 130);
+    }
+
+    &__top {
+        max-width: 530px;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        text-align: center;
+        gap: clampFluid(10, 20);
+    }
+
+    &__box {
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+        gap: clampFluid(30, 50);
+    }
+
+    &__list {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: clampFluid(20, 50);
+    }
+
+    &__bottom {
+        display: flex;
+        flex-flow: row;
+        align-items: flex-start;
+        gap: clampFluid(30, 80);
+    }
+
+    &__card {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+    }
+
+    @media (max-width: 1200px) {
+        &__list {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        &__list {
+            grid-template-columns: repeat(1, 1fr);
+            gap: 50px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        &__bottom {
+            flex-flow: column;
+            align-items: center;
+            gap: 15px;
+        }
+    }
+}

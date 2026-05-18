@@ -17,13 +17,10 @@ return new class extends Migration
                 ->default(false);
             $table->foreignId('user_id')
                 ->constrained('users')
-                ->nullable()
-                ->onDelete('set null');
+                ->nullable();
             $table->integer('position')
                 ->default(0);
             $table->timestamps();
-
-            $table->index('user_id');
         });
 
         Schema::create('media', function (Blueprint $table) {
@@ -35,8 +32,7 @@ return new class extends Migration
             $table->string('extension', 10);
             $table->foreignId('user_id')
                 ->constrained('users')
-                ->nullable()
-                ->onDelete('set null');
+                ->nullable();
             $table->string('path')
                 ->unique();
             $table->unsignedBigInteger('size')
@@ -46,8 +42,6 @@ return new class extends Migration
             $table->string('alt_text')
                 ->nullable();
             $table->timestamps();
-
-            $table->index('user_id');
         });
 
         Schema::create('album_media', function (Blueprint $table) {

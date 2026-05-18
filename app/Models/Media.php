@@ -35,6 +35,7 @@ class Media extends Model
     protected $casts = [
         'size' => 'integer',
     ];
+    protected $appends = ['url'];
 
     public function user()
     {
@@ -47,6 +48,11 @@ class Media extends Model
             ->using(AlbumMedia::class)
             ->withTimestamps()
             ->withPivot('id');
+    }
+
+    public function getUrlAttribute(): string
+    {
+        return asset('storage/' . $this->path);
     }
 
     public function scopeImages($query)

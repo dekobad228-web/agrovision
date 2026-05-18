@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Page;
 use App\Models\PageBlock;
+use App\Models\Media;
 use App\View\Components as Components;
 use Illuminate\Console\View\Components\Component;
 use Illuminate\Database\Eloquent\Model;
@@ -92,6 +93,44 @@ class PagesController extends Controller
         usort($themes, function ($a, $b) use ($page) {
             if ($a['value'] === $page->theme->value) return -1;
             if ($b['value'] === $page->theme->value) return 1;
+        });
+
+        $mediaIds = $page->blocks->flatMap(function ($block) {
+            $ids = [];
+            foreach ($block->content ?? [] as $value) {
+                if (is_array($value) && isset($value['id'])) {
+                    $ids[] = $value['id'];
+                } elseif (is_array($value) && !isset($value['id'])) {
+                    foreach ($value as $item) {
+                        if (isset($item['id'])) $ids[] = $item['id'];
+                    }
+                }
+            }
+            return $ids;
+        })->filter()->unique()->values();
+
+        $mediaMap = Media::whereIn('id', $mediaIds)->get()->keyBy('id');
+
+        $page->blocks->each(function ($block) use ($mediaMap) {
+            $content = $block->content ?? [];
+
+            foreach ($content as $key => $value) {
+                if (is_array($value) && isset($value['id']) && $mediaMap->has($value['id'])) {
+                    $content[$key] = $mediaMap[$value['id']]->toArray();
+                } elseif (is_array($value) && !isset($value['id'])) {
+                    // gallery
+                    $content[$key] = collect($value)
+                        ->map(
+                            fn($item) => isset($item['id']) && $mediaMap->has($item['id'])
+                                ? $mediaMap[$item['id']]->toArray()
+                                : $item
+                        )
+                        ->values()
+                        ->toArray();
+                }
+            }
+
+            $block->content = $content;
         });
 
         return view('admin.pages.show', compact(

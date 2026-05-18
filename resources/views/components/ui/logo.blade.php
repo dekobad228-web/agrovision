@@ -1,6 +1,6 @@
 @props([
 'href' => '/',
-'size' => 'text-h3-500',
+'size' => 'h3-500',
 ])
 
 <a href="{{ $href }}" class="logo {{ $size }}">
@@ -8,7 +8,7 @@
         <span class="logo__main">
             AGRO
         </span>
-        <span class="logo__accent">
+        <span class="logo__accent" data-text="VISION">
             VISION
         </span>
     </div>

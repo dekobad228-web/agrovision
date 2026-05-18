@@ -16,7 +16,7 @@
         background-color: var(--blur-bg);
         padding: clampFluid(7.5, 22.5) clampFluid(15, 30);
         border: 1px solid rgba($white, 0.3);
-        border-radius: 20px;
+        border-radius: clampFluid(12, 20);
     }
 
     &__el {

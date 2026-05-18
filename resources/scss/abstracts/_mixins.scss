@@ -14,10 +14,15 @@
     @if($scale) {
         $min: map.get($scale, min);
         $max: map.get($scale, max);
+        $color-key: map.get($scale, color);
 
         font-size: fn.clampFluid($min, $max, 380, 1920);
         line-height: $line-height or map.get($scale, line-height);
         font-weight: $weight or map.get($scale, font-weight);
+
+        @if($color-key) {
+            color: var(--#{$color-key});
+        }
     }
 
     @else {

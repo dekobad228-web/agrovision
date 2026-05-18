@@ -1,35 +1,14 @@
 @use "@/abstracts" as *;
 
-.banner {
-    position: relative;
-    overflow: hidden;
+.section-banner {
     min-height: 600px;
     height: 100svh;
-
-    &::after {
-        content: "";
-        position: absolute;
-        left: 50%;
-        top: 0;
-        width: 1450px;
-        aspect-ratio: 1450 / 1160;
-        background: radial-gradient(70.34% 68.61% at 29.66% 48.89%,
-                var(--gradient-1) 0%,
-                var(--gradient-2) 52.63%,
-                var(--gradient-3) 100%);
-        transform: translate(-50%, -50%);
-        filter: blur(100px);
-        z-index: 1;
-        pointer-events: none;
-        border-radius: 500px;
-    }
 
     &__container {
         height: 100%;
     }
 
     &__block {
-        position: relative;
         height: 100%;
         display: flex;
         flex-flow: column;
@@ -41,7 +20,6 @@
 
     &__title,
     &__description {
-        color: var(--text);
         text-align: center;
     }
 }
