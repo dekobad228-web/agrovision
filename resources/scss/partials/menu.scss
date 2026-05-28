@@ -1,0 +1,73 @@
+@use "@/abstracts" as *;
+
+.menu {
+    position: fixed;
+    bottom: clampFluid(30, 90);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+
+    &__block {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        gap: clampFluid(15, 25);
+        backdrop-filter: var(--blur);
+        background-color: var(--blur-bg);
+        padding: clampFluid(7.5, 22.5) clampFluid(15, 30);
+        border: 1px solid rgba($white, 0.3);
+        border-radius: clampFluid(12, 20);
+    }
+
+    &__el {
+        position: relative;
+        color: var(--text);
+        transition: .3s ease;
+
+        &.active {
+            &::before {
+                width: 80%;
+                height: clampFluid(8, 16);
+            }
+
+            &::after {
+                width: 100%;
+            }
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            bottom: clampFluid(-12, -28);
+            left: 50%;
+            background: var(--main);
+            transform: translateX(-50%);
+            filter: blur(16.899999618530273px);
+            transition: .3s ease;
+            z-index: 1;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 4px;
+            left: 50%;
+            bottom: clampFluid(-8, -23);
+            transform: translateX(-50%);
+            background: var(--main);
+            transition: .3s ease;
+            z-index: 2;
+        }
+
+        &:hover {
+            color: var(--main);
+
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+}

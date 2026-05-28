@@ -1,0 +1,141 @@
+$white: #FFFFFF;
+$white-gray: #F6F6F6;
+$black: #000000;
+$green-light: #B8CF4A;
+$green-lime: #DBFF30;
+$pink: #EF0C58;
+$orange: #EF693E;
+
+$blue-transparent: #303AFF00;
+
+$theme-light: (
+    bg: $white-gray,
+    text: $black,
+
+    inverse: $black,
+
+    text-80: rgba($black, 0.8),
+    text-70: rgba($black, 0.7),
+    text-60: rgba($black, 0.6),
+
+    icon: $black,
+    border: #33362C4D,
+
+    main: $green-light,
+    gradient-1: $green-light,
+    gradient-2: $green-light,
+    gradient-3: $green-light,
+
+    glow: none,
+    glow-1: $pink,
+    glow-2: $green-light,
+
+    blur: blur(100px),
+    blur-bg: rgba($white, 1),
+
+    shimmer-beam: linear-gradient(110deg,
+        transparent 0%,
+        transparent 38%,
+        rgba($black, 0.07) 43%,
+        rgba($white, 0.00) 46%,
+        rgba($white, 0.90) 50%,
+        rgba($white, 0.00) 54%,
+        rgba($black, 0.05) 57%,
+        transparent 62%,
+        transparent 100%),
+);
+
+$theme-dark: (
+    bg: $black,
+    text: $white,
+
+    inverse: $white,
+
+    text-80: rgba($white, 0.8),
+    text-70: rgba($white, 0.7),
+    text-60: rgba($white, 0.6),
+
+    icon: $white,
+    border: #FFFFFF1A,
+
+    main: $pink,
+    gradient-1: $green-lime,
+    gradient-2: $orange,
+    gradient-3: $pink,
+
+    glow: block,
+    glow-1: $pink,
+    glow-2: $blue-transparent,
+
+    blur: blur(43.400001525878906px),
+    blur-bg: rgba($white, 0.1),
+
+    shimmer-beam: linear-gradient(110deg,
+        transparent 0%,
+        transparent 38%,
+        rgba($black, 0.15) 43%,
+        rgba($green-lime, 0.00) 46%,
+        rgba($green-lime, 0.60) 50%,
+        rgba($orange, 0.40) 54%,
+        rgba($black, 0.10) 57%,
+        transparent 62%,
+        transparent 100%),
+);
+
+$text-style: (
+    h1: (min: 60,
+        max: 120,
+        line-height: 1.1,
+        font-weight: 400,
+        color: text,
+    ),
+    h2: (min: 24,
+        max: 45,
+        line-height: 1.1,
+        font-weight: 400,
+        color: text,
+    ),
+    h3: (min: 20,
+        max: 32,
+        line-height: 1.15,
+        font-weight: 400,
+        color: text,
+    ),
+    h4: (min: 16,
+        max: 28,
+        line-height: 1.2,
+        font-weight: 400,
+        color: text,
+    ),
+    h5: (min: 16,
+        max: 18,
+        line-height: 1.2,
+        font-weight: 400,
+        color: text,
+    ),
+    h6: (min: 16,
+        max: 16,
+        line-height: 1.2,
+        font-weight: 400,
+        color: text,
+    ),
+    p1: (min: 16,
+        max: 24,
+        line-height: 1.2,
+        font-weight: 400,
+        color: text,
+    ),
+    p2: (min: 14,
+        max: 20,
+        line-height: 1.2,
+        font-weight: 400,
+        color: text-70,
+    )
+);
+
+$font-weight: (
+    400: 400,
+    500: 500,
+    600: 600,
+    700: 700,
+);

@@ -1,0 +1,67 @@
+@use "@/abstracts" as *;
+
+.logo {
+    font-family: 'Gilroy', sans-serif;
+    pointer-events: all;
+    user-select: none;
+
+    &:hover {
+        span {
+            filter: brightness(1.1);
+        }
+    }
+
+    &__block {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        max-height: 70px;
+        padding: clampFluid(7.5, 22.5) clampFluid(15, 30);
+        backdrop-filter: var(--blur);
+        background-color: var(--blur-bg);
+        border: 1px solid rgba($white, 0.3);
+        border-radius: clampFluid(12, 20);
+        transition: .3s ease;
+    }
+
+    &__main {
+        color: var(--text);
+        transition: .3s ease;
+    }
+
+    &__accent {
+        position: relative;
+        background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+        transition: .3s ease;
+
+        &::after {
+            content: attr(data-text);
+            position: absolute;
+            inset: 0;
+            background-image: var(--shimmer-beam);
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 4s cubic-bezier(0.25, 0, 0.75, 1) infinite;
+            pointer-events: none;
+        }
+    }
+}
+
+@keyframes shimmer {
+
+    0%,
+    30% {
+        background-position: 140% center;
+    }
+
+    100% {
+        background-position: -40% center;
+    }
+}

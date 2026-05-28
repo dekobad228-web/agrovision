@@ -1,0 +1,13 @@
+@use "@/abstracts" as *;
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@each $key, $value in $text-style {
+    @each $name, $weight in $font-weight {
+        .#{$key}-#{$name} {
+            @include textFluid($key, $weight);
+        }
+    }
+}

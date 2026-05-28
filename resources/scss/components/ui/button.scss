@@ -1,0 +1,16 @@
+@use "@/abstracts" as *;
+
+.button {
+    position: relative;
+    background: radial-gradient(74.01% 100% at 50.24% 100%, var(--gradient-1) 0%, var(--gradient-2) 65.38%, var(--gradient-3) 100%);
+    padding: clampFluid(10) clampFluid(22.5);
+    border-radius: 20px;
+    color: $white;
+    transition: .3s ease;
+    user-select: none;
+    cursor: pointer;
+
+    &:hover {
+        filter: brightness(1.1);
+    }
+}

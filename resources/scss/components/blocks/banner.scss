@@ -1,0 +1,25 @@
+@use "@/abstracts" as *;
+
+.section-banner {
+    min-height: 600px;
+    height: 100svh;
+
+    &__container {
+        height: 100%;
+    }
+
+    &__block {
+        height: 100%;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: flex-end;
+        padding-bottom: clampFluid(150, 250);
+        z-index: 2;
+    }
+
+    &__title,
+    &__description {
+        text-align: center;
+    }
+}
